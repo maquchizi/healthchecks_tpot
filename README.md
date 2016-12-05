@@ -1,4 +1,4 @@
-# healthchecks
+# healthchecks                      [![Build Status](https://travis-ci.org/Muthama-Kahohi/healthchecks_tpot.svg?branch=ch-integrates-travis-ci-135501283)](https://travis-ci.org/Muthama-Kahohi/healthchecks_tpot)
 
 ![Screenshot of Welcome page](/stuff/screenshots/welcome.png?raw=true "Welcome Page")
 
