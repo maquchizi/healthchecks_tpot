@@ -80,19 +80,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'hc.wsgi.application'
 TEST_RUNNER = 'hc.api.tests.CustomRunner'
 
-
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'hc',
-        'USER': 'postgres',
-        'PASSWORD': 'ilove@123',
-        'HOST': '127.0.0.1',
-        'PORT': '5433',
-    }
-}
-
 # Default database engine is SQLite. So one can just check out code,
 # install requirements.txt and do manage.py runserver and it works
 # DATABASES = {
@@ -105,14 +92,14 @@ DATABASES = {
 # You can switch database engine to postgres or mysql using environment
 # variable 'DB'. Travis CI does this.
 if os.environ.get("DB") == "postgres":
-     DATABASES = {
-         'default': {
-             'ENGINE':   'django.db.backends.postgresql',
-             'NAME':     'hc',
-             'USER':     'postgres',
-             'TEST': {'CHARSET': 'UTF8'}
-         }
-     }
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'hc',
+            'USER': 'postgres',
+            'TEST': {'CHARSET': 'UTF8'}
+        }
+    }
 
 # if os.environ.get("DB") == "mysql":
 #     DATABASES = {
