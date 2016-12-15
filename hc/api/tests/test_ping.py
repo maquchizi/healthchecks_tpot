@@ -80,15 +80,21 @@ class PingTestCase(TestCase):
 
         self.assertEqual(200, r.status_code)
         self.assertNotEqual('paused', check.status)
+        self.assertEqual('up', check.status)
 
     ### Test that a post to a ping works
     def test_it_allows_post_to_ping(self):
         r = self.client.post("/ping/%s/" % self.check.code)
-
         self.assertEqual(200, r.status_code)
+
+        check = Check.objects.latest("id")
+        self.assertEqual('up', check.status)
 
     ### Test that the csrf_client head works
     def test_it_allows_csrf_client_head(self):
         csrf_client = Client(enforce_csrf_checks=True)
         r = csrf_client.post("/ping/%s/" % self.check.code)
         self.assertEqual(200, r.status_code)
+
+        check = Check.objects.latest("id")
+        self.assertEqual('up', check.status)
